@@ -1,0 +1,12 @@
+Text analysis results:
+- Words with numbers and letters: ['123xD3']
+- Contains valid IP: True
+- Shortest word with 'w': 'w'
+- Words sorted by length: ['w', 'g', 'How', 'are', 'you', 'Bye', 'gdw', 'wgs', 'gdl', 'glkw', "it's", 'Hello', 'gwgds']
+- Total sentences: 6
+- Narrative sentences (.): 4
+- Interrogative sentences (?): 1
+- Incentive sentences (!): 1
+- Average sentences length: 2.50
+- Average word length: 5.73
+- Smileys found: 1
