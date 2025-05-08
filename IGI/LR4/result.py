@@ -1,7 +1,7 @@
 class Result:
     def __init__(self):
         self.char_with_num = []       
-        self.is_ip = False             
+        self.is_ip = []          
         self.shortest_with_w = ""        
         self.len_increase_order = []     
         self.sentences_count = 0       
@@ -16,7 +16,7 @@ class Result:
         return (
             f"Text analysis results:\n"
             f"- Words with numbers and letters: {self.char_with_num}\n"
-            f"- Contains valid IP: {self.is_ip}\n"
+            f"- Contains valid IPs:\n" + "\n".join(f"\t{flag}" for flag in self.is_ip) + "\n"
             f"- Shortest word with 'w': '{self.shortest_with_w}'\n"
             f"- Words sorted by length: {self.len_increase_order}\n"
             f"- Total sentences: {self.sentences_count}\n"

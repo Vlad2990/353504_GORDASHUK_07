@@ -39,8 +39,8 @@ class Hexagon(Shape):
         if title:
             plt.title(title)
         plt.fill(self.x_points, self.y_points, color=self.color.color)
-        plt.show()
         plt.savefig("shape.png")
+        plt.show()
         
     def area(self) -> float:
         return self.a * self.a * 3 * math.sqrt(3) / 2
@@ -50,4 +50,4 @@ class Hexagon(Shape):
             self.shape_type,
             self.color.color,
             self.a
-)
+            )

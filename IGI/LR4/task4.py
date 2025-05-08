@@ -15,5 +15,5 @@ def Task4():
         except ValueError:
             print("Wrong color")
         else:
-            print(str(hex))
+            print(hex)
             break

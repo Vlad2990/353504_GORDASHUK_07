@@ -1,6 +1,5 @@
 import math
 import statistics
-from collections import Counter
 
 class Cosine:
     def __init__(self):

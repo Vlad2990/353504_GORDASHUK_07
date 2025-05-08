@@ -45,7 +45,7 @@ def Task1():
             students_from = Serializer.read_csv(filename + ".csv")
             
             students = [Student(item['name'], float(item['run']), float(item['jump'])) 
-                for item in students_from if 'name' in item and 'run' in item and 'jump' in item]
+                for item in students_from]
             break
     
     trpAnalyz = TRPNormAnalyz(students, 13, 4)

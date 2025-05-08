@@ -11,7 +11,7 @@ Lab Work #2
 Gordashuk Vladislav
 This module processes task selection
 Version: 1.0
-Date: 23.04S.2025
+Date: 23.04.2025
 """
 
 def PrintMenu():

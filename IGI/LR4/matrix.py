@@ -61,6 +61,4 @@ class IntMatrix(Matrix):
         variance = np.mean((diag - mean) ** 2)
         return round(variance, 2)
     
-    def __str__(self):
-        return super().__str__()
         

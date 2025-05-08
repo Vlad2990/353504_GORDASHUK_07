@@ -4,29 +4,51 @@ class FileAnalazer:
     @staticmethod
     def get_char_with_num(content):
         """
-        Search for word with num and upper case char 
+        Search for word with num and lower case char 
         Args:
             content (str): text
 
         Returns:
             int: num of words
         """
-        pattern = r'\b\w*[А-ЯA-Z][0-9]|\w*[0-9][А-ЯA-Z]\w*\b'
+        pattern = r'\b\w*[а-яa-z]\d\b|\b\w*\d[а-яa-z]\b'
         matches = re.findall(pattern, content)
         return matches
     
     @staticmethod
-    def is_ip(string):
+    def is_ip(text):
         """
         Сhecking whether it is an IP
         Args:
-            content (str): string
+            content (str): text
 
         Returns:
-            bool
+            list[bool]
         """
         pattern = r'^((25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(25[0-5]|2[0-4]\d|[01]?\d\d?)$'
-        return bool(re.fullmatch(pattern, string))
+        lines = text.split('\n')
+        results = []
+        for line in lines:
+            line = line.strip()
+            if re.fullmatch(pattern, line):
+                results.append(True)
+            else:
+                results.append(False)
+        return results
+
+    @staticmethod
+    def shortest_with_w(content):
+        """
+        Count words with len < 6
+        Args:
+            content (str): text
+
+        Returns:
+            Num of words
+        """
+        pattern = r'\b\w{1, 5}\b'        
+        matches = re.findall(pattern, content)
+        return len(matches)
     
     @staticmethod
     def shortest_with_w(content):
@@ -53,7 +75,8 @@ class FileAnalazer:
         Returns:
             list[string]
         """
-        words = re.findall(r"\b[a-zA-Zа-яА-Я']+\b", content)
+        
+        words = re.findall(r"\b\w+\b", content)
         return sorted(words, key=len)
     
     @staticmethod
@@ -81,7 +104,7 @@ class FileAnalazer:
         Returns:
             int: num of narrative sentences
         """
-        words = re.findall('\.', content)
+        words = re.findall(r'\.', content)
         return len(words)
     
     @staticmethod
@@ -94,7 +117,7 @@ class FileAnalazer:
         Returns:
             int: num of interrogative sentences
         """
-        words = re.findall('\?', content)
+        words = re.findall(r'\?', content)
         return len(words)
     
     @staticmethod
@@ -133,7 +156,7 @@ class FileAnalazer:
         Returns:
             float
         """
-        words = content.split()
+        words = re.findall(r"\b\w+\b", content)
         num = 0
         for word in words:
             num += len(word)

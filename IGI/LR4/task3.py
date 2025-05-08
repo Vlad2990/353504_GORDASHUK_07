@@ -41,4 +41,3 @@ def Task3():
     plt.savefig("task3.png")
 
     plt.show()
-    

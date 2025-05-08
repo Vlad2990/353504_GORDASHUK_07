@@ -6,16 +6,23 @@ from decorator import repeat_on_demand
 @repeat_on_demand()
 def Task2():
     """Analizy text from file and save result to zip"""
-    file = open("text.txt", 'r')
-    content = file.read()
-    file.close()
+    while True:
+        try:
+            file = open("text.txt", 'r')
+            content = file.read()
+            file.close()
+            break
+        except FileNotFoundError:
+            print("File not found")
+            exit()
+            
     print(content)
     print(FileAnalazer.in_len_increase(content))
     result = Result()
     result.char_with_num = FileAnalazer.get_char_with_num(content)
     result.shortest_with_w = FileAnalazer.shortest_with_w(content)
     result.len_increase_order = FileAnalazer.in_len_increase(content)
-    result.is_ip = FileAnalazer.is_ip(content[0:14:1])
+    result.is_ip = FileAnalazer.is_ip(content)
     result.sentences_count = FileAnalazer.sent_num(content)
     result.narrative_count = FileAnalazer.num_of_narrative(content)
     result.interrogative_count = FileAnalazer.num_of_interrogative(content)

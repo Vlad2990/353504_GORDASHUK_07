@@ -1,12 +1,17 @@
 Text analysis results:
-- Words with numbers and letters: ['123xD3']
-- Contains valid IP: True
+- Words with numbers and letters: ['a1', 'b2c', 'c3d4', 'hello1w']
+- Contains valid IPs:
+	False
+	True
+	False
+	False
+	False
 - Shortest word with 'w': 'w'
-- Words sorted by length: ['w', 'g', 'How', 'are', 'you', 'Bye', 'gdw', 'wgs', 'gdl', 'glkw', "it's", 'Hello', 'gwgds']
-- Total sentences: 6
-- Narrative sentences (.): 4
+- Words sorted by length: ['I', 'm', '0', '1', 'w', 'My', 'IP', 'is', 'a1', 'IP', '50', '25', 'How', 'are', 'you', '192', '168', 'b2c', 'wow', 'web', '256', '100', 'fine', 'this', 'c3d4', 'Hello', 'world', 'today', 'Check', 'Hello', 'again', 'thanks', 'hello1w', 'Another']
+- Total sentences: 11
+- Narrative sentences (.): 9
 - Interrogative sentences (?): 1
 - Incentive sentences (!): 1
-- Average sentences length: 2.50
-- Average word length: 5.73
-- Smileys found: 1
+- Average sentences length: 2.82
+- Average word length: 3.26
+- Smileys found: 4
