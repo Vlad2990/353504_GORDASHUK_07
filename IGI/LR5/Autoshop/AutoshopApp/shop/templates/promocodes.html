@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Promocodes</h2>
+
+{% if promocodes %}
+    <div>
+        {% for pr in promocodes %}
+        <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 20px;">
+            <div>
+                <h3>{{ pr.description }}</h3>
+                <h4>Valid until {{ pr.valid }}</h4>
+                {%if not pr.is_valid %}
+                    <span>&#10006;</span>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div>
+        <p>It's empty here</p>
+    </div>
+{% endif %}
+{% endblock content %}

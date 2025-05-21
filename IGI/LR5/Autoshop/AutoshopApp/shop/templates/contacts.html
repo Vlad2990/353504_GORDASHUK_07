@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Our contacts</h2>
+
+{% if contacts %}
+    <div>
+        {% for c in contacts %}
+        <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 20px;">
+            <div>
+                <img src="{{ c.image.url }}" width="300" height="200" style="object-fit: cover;">
+                <h3>{{ c.name }}</h3>
+                <h4>{{ c.description }}</h4>
+                <h4>{{ c.phone_number }}</h4>
+                <h4>{{ c.email }}</h4>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div>
+        <p>It's empty here</p>
+    </div>
+{% endif %}
+{% endblock content %}

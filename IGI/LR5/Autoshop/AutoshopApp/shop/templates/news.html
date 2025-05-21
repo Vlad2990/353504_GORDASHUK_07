@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>News</h2>
+
+{% if news %}
+    <div>
+        {% for new in news %}
+        <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 20px;">
+            <div>
+                <h3>{{ new.title }}</h3>
+                <small>{{ new.short }}</small>
+                <div> <a href="{% url 'news' %}" class="btn" onclick="return false;" >Read more</a> </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div>
+        <p>It's empty here</p>
+    </div>
+{% endif %}
+{% endblock content %}

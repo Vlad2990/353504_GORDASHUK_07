@@ -1,0 +1,257 @@
+[
+    {
+        "model": "shop.productcategory",
+        "pk": 1,
+        "fields": {
+            "name": "Engine"
+        }
+    },
+    {
+        "model": "shop.productcategory",
+        "pk": 2,
+        "fields": {
+            "name": "Brake System"
+        }
+    },
+    {
+        "model": "shop.provider",
+        "pk": 1,
+        "fields": {
+            "name": "AutoImport",
+            "address": "Minsk, Lenin St. 10",
+            "phone_number": "+375291112233",
+            "created": "2025-05-01T10:00:00Z",
+            "utc_created": "2025-05-01T10:00:00Z"
+        }
+    },
+    {
+        "model": "shop.provider",
+        "pk": 2,
+        "fields": {
+            "name": "MotorPlus",
+            "address": "Grodno, Sovetskaya St. 25",
+            "phone_number": "+375293334455",
+            "created": "2025-05-01T11:00:00Z",
+            "utc_created": "2025-05-01T11:00:00Z"
+        }
+    },
+    {
+        "model": "shop.provider",
+        "pk": 3,
+        "fields": {
+            "name": "TechnoAuto",
+            "address": "Brest, Pushkin St. 5",
+            "phone_number": "+375297778899",
+            "created": "2025-05-01T12:00:00Z",
+            "utc_created": "2025-05-01T12:00:00Z"
+        }
+    },
+    {
+        "model": "shop.provider",
+        "pk": 4,
+        "fields": {
+            "name": "AutoProfi",
+            "address": "Vitebsk, Mashinostroiteley St. 15",
+            "phone_number": "+375296667788",
+            "created": "2025-05-01T13:00:00Z",
+            "utc_created": "2025-05-01T13:00:00Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "pk": 1,
+        "fields": {
+            "name": "Oil Filter",
+            "article": 1001,
+            "price": "15.50",
+            "in_stock": 20,
+            "category": 1,
+            "providers": [1, 2],
+            "created": "2025-05-01T14:00:00Z",
+            "utc_created": "2025-05-01T14:00:00Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "pk": 2,
+        "fields": {
+            "name": "Air Filter",
+            "article": 1002,
+            "price": "12.00",
+            "in_stock": 30,
+            "category": 1,
+            "providers": [3, 4],
+            "created": "2025-05-01T15:00:00Z",
+            "utc_created": "2025-05-01T15:00:00Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "pk": 3,
+        "fields": {
+            "name": "Spark Plug",
+            "article": 1003,
+            "price": "8.90",
+            "in_stock": 50,
+            "category": 1,
+            "providers": [1, 2],
+            "created": "2025-05-01T16:00:00Z",
+            "utc_created": "2025-05-01T16:00:00Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "pk": 4,
+        "fields": {
+            "name": "Timing Belt",
+            "article": 1004,
+            "price": "35.00",
+            "in_stock": 10,
+            "category": 1,
+            "providers": [3, 4],
+            "created": "2025-05-01T17:00:00Z",
+            "utc_created": "2025-05-01T17:00:00Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "pk": 5,
+        "fields": {
+            "name": "Battery",
+            "article": 1005,
+            "price": "95.00",
+            "in_stock": 5,
+            "category": 1,
+            "providers": [1, 2],
+            "created": "2025-05-01T18:00:00Z",
+            "utc_created": "2025-05-01T18:00:00Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "pk": 6,
+        "fields": {
+            "name": "Brake Pads",
+            "article": 2001,
+            "price": "45.00",
+            "in_stock": 25,
+            "category": 2,
+            "providers": [3, 4],
+            "created": "2025-05-01T19:00:00Z",
+            "utc_created": "2025-05-01T19:00:00Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "pk": 7,
+        "fields": {
+            "name": "Brake Disc",
+            "article": 2002,
+            "price": "60.00",
+            "in_stock": 15,
+            "category": 2,
+            "providers": [1, 2],
+            "created": "2025-05-01T20:00:00Z",
+            "utc_created": "2025-05-01T20:00:00Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "pk": 8,
+        "fields": {
+            "name": "Master Brake Cylinder",
+            "article": 2003,
+            "price": "80.00",
+            "in_stock": 8,
+            "category": 2,
+            "providers": [3, 4],
+            "created": "2025-05-01T21:00:00Z",
+            "utc_created": "2025-05-01T21:00:00Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "pk": 9,
+        "fields": {
+            "name": "Brake Fluid",
+            "article": 2004,
+            "price": "10.00",
+            "in_stock": 40,
+            "category": 2,
+            "providers": [1, 2],
+            "created": "2025-05-01T22:00:00Z",
+            "utc_created": "2025-05-01T22:00:00Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "pk": 10,
+        "fields": {
+            "name": "ABS Sensor",
+            "article": 2005,
+            "price": "25.00",
+            "in_stock": 18,
+            "category": 2,
+            "providers": [3, 4],
+            "created": "2025-05-01T23:00:00Z",
+            "utc_created": "2025-05-01T23:00:00Z"
+        }
+    },
+    {
+        "model": "shop.news",
+        "pk": 1,
+        "fields": {
+            "title": "New Arrivals",
+            "short": "Fresh car parts are now in stock",
+            "content": "We have updated our engine and brake system assortment.",
+            "image": null
+        }
+    },
+    {
+        "model": "shop.news",
+        "pk": 2,
+        "fields": {
+            "title": "Weekly Discounts",
+            "short": "Up to 30% off on brake pads",
+            "content": "Hurry up and get the best deal!",
+            "image": null
+        }
+    },
+    {
+        "model": "shop.qanda",
+        "pk": 1,
+        "fields": {
+            "question": "How to place an order?",
+            "answer": "Add items to the cart and click 'Checkout'.",
+            "date": "2025-05-03T17:43:26.032281"
+        }
+    },
+    {
+        "model": "shop.qanda",
+        "pk": 2,
+        "fields": {
+            "question": "What payment methods are available?",
+            "answer": "By card or cash on delivery.",
+            "date": "2025-05-03T17:43:26.032287"
+        }
+    },
+    {
+        "model": "shop.promocode",
+        "pk": 1,
+        "fields": {
+            "description": "DISCOUNT10",
+            "valid": "2025-05-03"
+        }
+    },
+    {
+        "model": "shop.contact",
+        "pk": 1,
+        "fields": {
+            "name": "Manager",
+            "description": "For order inquiries",
+            "phone_number": "+375291234567",
+            "email": "manager@example.com",
+            "image": null
+        }
+    }
+]

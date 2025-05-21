@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Your cart</h2>
+    
+    {% if cart_items %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_items %}
+            <tr>
+                <td>{{ item.product.name }}</td>
+                <td>{{ item.price_at_order }}$</td>
+                <td>{{ item.quantity }} </td>
+                <td>{{ item.get_total_price }} </td>
+                <td>
+                    <a href="{% url 'remove_from_cart' item.id %}" 
+                       class="btn btn-sm btn-danger">Remove</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="text-right mt-4">
+        <form method="post" action="{% url 'checkout' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success">Make an order</button>
+        </form>
+    </div>
+    
+    {% else %}
+    <div class="alert alert-info">It's empty here</div>
+    {% endif %}
+</div>
+{% endblock %}

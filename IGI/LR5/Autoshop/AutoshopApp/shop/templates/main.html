@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h2>Last news</h2>
+    <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 20px;">
+        <div>
+            <h3>{{ news.title }}</h3>
+            <small>{{ news.short }}</small>
+            <div> <a href="{% url 'news' %}" class="btn" onclick="return false;" >Read more</a> </div>
+        </div>
+    </div>
+
+    <div class="activity-card">
+        <h3>{{ activity }}</h3>
+        <ul>
+            <li><strong>Тип:</strong> {{ type }}</li>
+        </ul>
+
+    <div>Timezone: {{ tz }} </div>
+    <div>Date: {{ date|date:"d/m/Y" }}
+    <pre>{{cal}}</pre>
+    <h2>Products by category</h2>
+
+    <form method="get" class="mb-4">
+        <input type="text" name="q" value="{{ search_query }}" placeholder="Search..." class="form-control" style="width: 200px; display: inline-block;">
+        
+        <select name="sort" class="form-control" style="width: 200px; display: inline-block;">
+            <option value="price" {% if sort_option == 'price' %}selected{% endif %}>Price ↑</option>
+            <option value="-price" {% if sort_option == '-price' %}selected{% endif %}>Price ↓</option>
+            <option value="name" {% if sort_option == 'name' %}selected{% endif %}>Name A→Z</option>
+            <option value="-name" {% if sort_option == '-name' %}selected{% endif %}>Name Z→A</option>
+        </select>
+        
+        <button type="submit" class="btn btn-primary">Apply</button>
+    </form>
+    
+    {% for category in categories %}
+    <div class="category-section mb-5">
+        <h3 class="category-title" style="font-size: 1.5rem;">{{ category.name }}</h3>
+        
+        <div class="row">
+            {% for product in category.product_set.all %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ product.name }}</h3>
+                        <p class="card-text">
+                            Article: {{ product.article }}<br>
+                            Price: {{ product.price }}$<br>
+                            In stock: {{ product.in_stock }}
+                        </p>
+                        {% if product.in_stock != 0%}
+                            <form method="post" action="{% url 'add_to_cart' product.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-sm btn-primary mt-2">Add to cart</button>
+                            </form>
+                        {%endif%}
+                    </div>
+                </div>                
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <p>There are no products in that category now</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+        </div>
+        <div align="center">
+        <h3>★ Joke ★</h3>
+        <p>«{{ joke }}»</p>
+    <p>✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦</p>
+    </div>
+</div>
+{% endblock %}

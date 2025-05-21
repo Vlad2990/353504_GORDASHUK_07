@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Questions and answers</h2>
+
+{% if qa %}
+    <div>
+        {% for q in qa %}
+        <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 20px;">
+            <div>
+                <h3>{{ q.question }}</h3>
+                <h4>{{ q.answer }}</h4>
+                <h3>{{ q.date|date:"d.m.Y H:i"}}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div>
+        <p>It's empty here</p>
+    </div>
+{% endif %}
+{% endblock content %}

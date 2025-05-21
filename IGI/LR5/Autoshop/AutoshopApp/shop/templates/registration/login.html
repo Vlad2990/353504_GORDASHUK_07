@@ -1,0 +1,15 @@
+<form class="form_auth_style" action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    <div> <a href="{% url 'main' %}" class="btn">Main page</a> </div>
+    <label>Username</label>
+    <input type="text" name="username" placeholder="Username" required>
+    
+    <label>Password</label>
+    <input type="password" name="password" placeholder="Password" required> 
+    
+    <button type="submit">Enter</button>
+    
+    {% if form.errors %}
+      <div class="alert">Wrong!</div>
+    {% endif %}
+  </form>

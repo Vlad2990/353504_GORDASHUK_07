@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<body>
+    <header>
+        <div style="display: flex; gap: 10px; align-items: center;">
+            {% if user.is_staff %}
+                <div> <a href="{% url 'viewproviders' %}" class="btn">Admin</a> </div>
+            {% endif %}
+            <div> <a href="{% url 'qa' %}" class="btn">Q&A</a> </div>
+            <div> <a href="{% url 'contacts' %}" class="btn">Contacts</a> </div>
+            <div> <a href="{% url 'main' %}" class="btn">Main page</a> </div>
+            <div> <a href="{% url 'promocodes' %}" class="btn">Promo</a> </div>
+            <div> <a href="{% url 'reviews' %}" class="btn">See feedback</a> </div>
+            <div> <a href="{% url 'feedback' %}" class="btn">Send feedback</a> </div>
+            <div> <a href="{% url 'about' %}" class="btn">About</a> </div>
+            <div> <a href="{% url 'policies' %}" class="btn">Security policies</a> </div>
+            {% if user.is_authenticated %}
+                <div> <a href="{% url 'cart' %}" class="btn">Order</a> </div>
+                <div> <a href="{% url 'profile' %}" class="btn">My profile</a> </div>
+                <div> <a href="{% url 'pickups' %}" class="btn">Pick-up points</a> </div>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-link">Exit</button>
+                </form>
+            {% else %}
+                <div> <a href="{% url 'register' %}" class="btn">Registration</a> </div>
+                <div> <a href="{% url 'login' %}" class="btn">Log in</a> </div>
+            {% endif %}
+        </div>
+    </header>
+
+    <main class="container my-4">
+        {% block content %}
+    
+        {% endblock %}
+    </main>
+
+    <footer class="bg-light py-3 text-center">
+        <p>© AutoParts Pro</p>
+    </footer>
+</body>
+</html>

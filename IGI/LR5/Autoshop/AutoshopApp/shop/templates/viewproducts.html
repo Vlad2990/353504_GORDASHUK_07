@@ -1,0 +1,51 @@
+{% extends 'adminbase.html' %}
+{% load tz %} 
+
+{% block content %}
+<h2>Products</h2>
+
+{% if prods %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Article</th>
+            <th>In stock</th>
+            <th>Price</th>
+            <th>Providers</th>
+            <th>Category</th>
+            <th>Last update</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in prods %}
+        <tr>
+            <td>{{ p.name }}</td>
+            <td>{{ p.article }}</td>
+            <td>{{ p.in_stock}}</td>
+            <td>{{ pr.price }}</td>
+            <td>
+                {% for provider in p.providers.all %}
+                    {{ provider.name }}
+                {% endfor %}
+            </td>
+            <td>{{ p.category }}</td>
+            <td>Local: {{ p.created|date:"d.m.Y H:i"}}
+               UTC: {% timezone "UTC" %} {{ p.utc_created|date:"d.m.Y H:i" }} {% endtimezone %}
+            </td>
+        {% if user.is_superuser %}
+            <td>
+                <a href="{% url 'edit_product' p.id %}" class="btn btn-warning">Edit</a>
+                <a href="{% url 'delete_product' p.id %}" class="btn btn-danger">Delete</a>
+            </td>
+        {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>It's empty here.</p>
+{% endif %}
+
+{% endblock %}

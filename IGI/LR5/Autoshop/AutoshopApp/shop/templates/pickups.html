@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Pick-up points</h2>
+
+{% if picks %}
+    <tbody>
+        {% for pick in picks %}
+        <tr>
+            <td>{{ pick.adress }}, </td>
+            <td>{{ pick.start_work|time:"H:i" }} - {{ pick.end_work|time:"H:i" }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+{% else %}
+    <div>
+        <p>It's empty here</p>
+    </div>
+{% endif %}
+{% endblock content %}
