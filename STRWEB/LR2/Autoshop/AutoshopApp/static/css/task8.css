@@ -1,0 +1,96 @@
+.books-container {
+    list-style-type: none; 
+    padding: 0;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+}
+
+.books-container li {
+    display: flex;        
+    gap: 15px;             
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.books-container li:nth-child(odd) {
+    background-color: #e0e0e0;
+}
+
+.books-container li:nth-child(even) {
+    background-color: #cfd8dc;
+}
+
+.books-container li div {
+    flex: 1;              
+    font-size: 1rem;
+    color: #222;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;  
+}
+
+#add-book label {
+    display: block; 
+    width: 200px;
+    margin: 10px;
+}
+
+label > input {
+    margin-left: 30px;
+}
+
+input.error {
+    border: 2px solid red !important;
+    background-color: #ffe6e6;
+}
+
+#filter-author label {
+    display: block;
+    width: 200px;
+    margin: 10px; 
+}
+
+.result-container {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+    border-radius: 10px;
+    background-color: #e3f2fd;
+}
+
+.result-container li {
+    display: flex;
+    gap: 15px;
+    padding: 12px 18px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    background-color: #bbdefb;
+    align-items: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.result-container li:hover {
+    background-color: #90caf9; 
+    transform: translateY(-2px);
+}
+
+.result-container li div {
+    flex: 1;
+    font-size: 1rem;
+    color: #0d47a1; 
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

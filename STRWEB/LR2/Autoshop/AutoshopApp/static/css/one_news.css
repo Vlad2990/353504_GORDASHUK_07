@@ -1,0 +1,16 @@
+.news-content {
+    -webkit-columns: 150px 3;
+    -moz-columns: 150px 3; 
+    columns: 150px 3; 
+}
+
+.news-content::first-letter {
+    font-weight: 36px;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 500px;
+    height: auto;          
+}

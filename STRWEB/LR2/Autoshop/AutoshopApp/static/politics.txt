@@ -1,0 +1,3 @@
+We collect Vehicle Identification Data to ensure the auto parts you purchase are compatible with your specific vehicle. 
+        This includes your Vehicle Identification Number (VIN), make, model, year, engine specifications, and other relevant vehicle characteristics. 
+        This information is used solely for parts compatibility verification and is not shared with third parties for marketing purposes.

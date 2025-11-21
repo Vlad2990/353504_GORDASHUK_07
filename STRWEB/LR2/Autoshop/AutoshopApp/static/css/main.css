@@ -1,0 +1,232 @@
+.advs {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly; 
+}
+
+.slide img {
+    height: 370px;
+}
+
+.new {
+    border: 1px darkcyan solid;
+    border-radius: 5px;
+}
+
+.new > h3 {
+    text-align: left;
+}
+
+.new a {
+    text-decoration: none;
+    color: brown;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+    padding: 20px;
+    background: #f8fafc;
+}
+
+.grid-container > div {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #667eea;
+}
+.product-card {
+    display: block;          
+    text-decoration: none;  
+    color: inherit;    
+}
+
+.product-card > div {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.product-card:hover > div {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.grid-container > .full-div {
+    grid-column: 1 / span 3; 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.partner-block {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.partner-block > [class|='logo']{
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+.partner-block > [class$='name'] {
+    text-transform: capitalize;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+.advs:nth-child(n) {
+    animation: ads-appear 3s linear forwards;
+    animation-delay: 13s;
+    opacity: 0;
+}
+
+@keyframes ads-appear {
+    0% { transform: translateY(-30px); opacity: 0; }
+    50% { opacity: 0.3; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes moving { 
+    0% { top: 50%; left: 20%; } 
+    50% { top: 50%; left: 80%; } 
+    75% { top: 20%; left: 50%; } 
+    100% { top: 50%; left: 20%; } 
+} 
+
+
+@keyframes rotating { 
+0% { transform: rotate(0deg); } 
+100% { transform: rotate(360deg); } 
+} 
+
+.slider-container {
+    position: relative;
+    margin: 20px auto;
+    text-align: center;
+    width: fit-content;
+}
+
+.slide {
+    margin: auto;
+    display: none;
+}
+
+.slide img {
+    height: 370px;
+    width: 300px;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    transform: translateY(-50%);
+    text-decoration: none;
+    font-size: 34px;
+    color: brown;
+}
+
+.prev:hover, .next:hover {
+    text-decoration: none !important;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.dots {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+}
+
+.slider-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color:#7f807f;
+    cursor: pointer;
+}
+
+.slider-dot.active {
+    cursor: default;
+    background-color: #2b2d2e;
+}
+
+.slider-dot:hover {
+    background-color: #2b2d2e;
+}
+
+.numbertext {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #f70707;
+}
+
+.caption {
+    position: absolute;
+    left: 50%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+    color:blue;
+}
+
+#slider-settings > label {
+    margin-right: 20px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px; 
+}
+
+.pagination button {
+    padding: 6px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+}
+
+.pagination button:disabled {
+    background-color: #635656;
+    cursor: default;
+}
+
+.pagination button.active {
+    background-color: #4285f4;
+    color: white;
+    cursor: default;
+    border-color: #4285f4;
+}
