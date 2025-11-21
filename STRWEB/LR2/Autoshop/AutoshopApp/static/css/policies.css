@@ -1,0 +1,39 @@
+abbr {
+    font-style: italic;
+    color: #007bff;
+    text-decoration: none;
+    border-bottom: 1px dotted #007bff;
+    cursor: help;
+}
+
+h1 a::after {
+    content: " ⬇️";
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+dfn {
+    display: block;
+    background: #f8f9fa;
+    border-left: 4px solid #3498db;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: normal;
+    color: #495057;
+    border-radius: 0 8px 8px 0;
+}
+
+dfn:hover {
+    background: #e9ecef;
+}
+
+code {
+    font-family: 'Courier New', Monaco, monospace;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+var {
+    font-style: italic;
+}
+

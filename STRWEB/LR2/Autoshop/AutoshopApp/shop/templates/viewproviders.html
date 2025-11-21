@@ -1,0 +1,41 @@
+{% extends 'adminbase.html' %}
+{% load tz %} 
+
+{% block content %}
+<h2>Providers</h2>
+
+{% if providers %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Last update</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pr in providers %}
+        <tr>
+            <td>{{ pr.name }}</td>
+            <td>{{ pr.address }}</td>
+            <td>{{ pr.phone_number}}</td>
+            <td>Local: {{ pr.created|date:"d.m.Y H:i" }}
+                UTC: {% timezone "UTC" %} {{ pr.utc_created|date:"d.m.Y H:i" }} {% endtimezone %}
+            </td>
+        {% if user.is_superuser %}
+            <td>
+                <a href="{% url 'edit_provider' pr.id %}" class="btn btn-warning">Edit</a>
+                <a href="{% url 'delete_provider' pr.id %}" class="btn btn-danger">Delete</a>
+            </td>
+        {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>It's empty here.</p>
+{% endif %}
+
+{% endblock %}

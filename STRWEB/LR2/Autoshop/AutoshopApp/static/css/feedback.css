@@ -1,0 +1,41 @@
+input:focus, textarea:focus {
+    border-color: #4caf50;
+    outline: none;
+}
+
+input:invalid {
+    border-color: red;
+}
+
+input:valid {
+    border-color: green;
+}
+
+.feedback-form {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fdfdfd;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    font-family: Arial, sans-serif;
+}
+
+.feedback-form .username {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.feedback-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.feedback-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #555;
+}
