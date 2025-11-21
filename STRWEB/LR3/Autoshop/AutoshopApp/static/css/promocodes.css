@@ -1,0 +1,34 @@
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    color: #333;
+}
+
+.promocodes-list {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+}
+
+.promocode {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin-bottom: 0.5rem;
+    transition: transform 0.15s ease-out;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+
+
+.promocodes-list .status.expired {
+    color: red;
+}
+
+.promocodes-list .status.active {
+    color: green;
+}
