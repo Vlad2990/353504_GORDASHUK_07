@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    {%load static%}
+    <head>     
+        <link rel="stylesheet" href="{% static 'css\base.css' %}">
+        <link rel="icon" href="{% static 'images\icon.png' %}" type="image/png"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Vladislav"/>
+        <meta name="description" content="Auto parts store"/>
+        <title>AutoParts Pro</title>
+        {% block style %}
+
+        {% endblock %}
+    </head>
+    <body class="{% block body_class %}{% endblock %}">
+        <div class="wrapper">
+            
+        <div class="preloader">
+            <div class="loader-content">
+                <div class="circle"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+        <header>
+            <h1 class='company-name'>Autoparts Pro</h1> 
+        </header>
+        <nav class='navigation'>
+            <ul>
+            <li id='theme-toggle'><div></div></li>
+            {% if user.is_staff %}
+                <li><a href="{% url 'viewproviders' %}" >Admin</a></li>
+            {% endif %}
+            <li><a href="{% url 'task8' %}" >Task 8</a></li>
+            <li><a href="{% url 'task10' %}" >Task 10</a></li>
+            <li><a href="{% url 'qa' %}" >Q&A</a></li>
+            <li><a href="{% url 'contacts' %}" >Contacts</a></li>
+            <li><a href="{% url 'vacancy' %}" >Vacancies</a></li>
+            <li><a href="{% url 'main' %}" >Main page</a></li>
+            <li><a href="{% url 'news' %}" >News</a></li>
+            <li><a href="{% url 'promocodes' %}" >Promo</a></li>
+            <li><a href="{% url 'reviews' %}" >See feedback</a></li>
+            <li><a href="{% url 'about' %}" >About</a></li>
+            <li><a href="{% url 'policies' %}" >Policies</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'cart' %}" >Order</a></li>
+                <li><a href="{% url 'profile' %}" >My profile</a></li>
+                <li><a href="{% url 'pickups' %}" >Pick-up points</a></li>
+                <li><form action="{% url 'logout' %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class='nav-button'>Exit</button>
+                </form></li>
+            {% else %}
+                <li><a href="{% url 'register' %}" >Registration</a></li>
+                <li><a href="{% url 'login' %}" >Log in</a></li>
+            {% endif %}
+            </ul>
+        </nav>
+
+    <main>
+        {% block content %}
+    
+        {% endblock %}
+    </main>
+    
+    <footer>
+        © AutoParts Pro
+    </footer>
+    <script src="{% static 'js/base.js' %}"></script>
+    {% block js %}{% endblock %}
+</body>
+</html>

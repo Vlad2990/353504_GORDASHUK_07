@@ -1,0 +1,9 @@
+{
+    "html.suggest.html5": true,
+    "emmet.includeLanguages": {
+        "django-html": "html",
+        "jinja-html": "html"
+    },
+    "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.linkedEditing": true
+}

@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/contacts.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2>Our contacts</h2>
+
+{% if contacts %}
+
+<button id="add-btn">Create new</button>
+
+<form id="add-form" name="add-form" style="display:none;">
+    <label>Name: <input type="text" name="name" required></label><br><br>
+    <div class="field-with-check">
+        <input type="text" name="image" id="url-input" placeholder="Image URL">
+        <button type="submit" class="check-btn" id="check-url">Check</button>
+    </div>
+    
+    <label>Description: <textarea name="description"></textarea></label><br><br>
+    
+    <div class="field-with-check">
+        <input type="text" name="phone_number" id="phone-input" placeholder="Phone">
+        <button type="submit" class="check-btn" id="check-phone">Check</button>
+    </div>
+    
+    <label>
+        Email: 
+        <input type="email" name="email" title="Enter email">
+    </label><br><br>
+    
+    <button type="submit" id="add-cont" disabled>Add</button>
+</form>
+
+
+<form class="finder" name="finder">
+    <input type="text" name="text" placeholder="Search...">
+    
+    <button type="submit">Find</button>
+</form>
+<!--<table class="table-contacts">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th class='sort-name'>Name</th>
+            <th class='sort-desc'>Description</th>
+            <th class='sort-phone'>Phone</th>
+            <th class='sort-email'>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in contacts %}
+        <tr class="table-item">
+            <td>{% if c.image %}<img src="{{ c.image.url }}">{% endif %}</td>
+            <td>{{ c.name }}</td>
+            <td>{{ c.description }}</td>
+            <td><a href="tel:{{ c.phone_number }}">{{ c.phone_number }}</a></td>
+            <td><a href="mailto:{{ c.email }}">{{ c.email }}</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>-->
+
+<div class="table-wrapper">
+    <div class="preloader">
+        <div class="loader-content">
+            <div class="circle"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <table id="table-contacts">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th class='sort-name'>Name</th>
+                <th class='sort-desc'>Description</th>
+                <th class='sort-phone'>Phone</th>
+                <th class='sort-email'>Email</th>
+                <th class='award'>Give award</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+<div class="pagination"></div>
+
+<button class="prem">Give award</button>
+
+<div id="details"></div>
+
+
+{% else %}
+<p>It's empty here</p>
+{% endif %}
+
+{% endblock content %}
+
+{% block js %}
+    <script src="{% static 'js/contacts.js' %}"></script>
+{% endblock %}

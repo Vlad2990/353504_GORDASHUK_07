@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if picks %}
+<section itemscope itemtype="https://schema.org/Place">
+    <h2>Pick-up Points</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Address</th>
+                <th>Working Hours</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pick in picks %}
+            <tr itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <td itemprop="streetAddress">{{ pick.adress }}</td>
+                <td>
+                    <time itemprop="openingHours" datetime="Mo-Fr {{ pick.start_work|time:'H:i' }}-{{ pick.end_work|time:'H:i' }}">
+                        {{ pick.start_work|time:"H:i" }} - {{ pick.end_work|time:"H:i" }}
+                    </time>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="2">No pick-up points available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+
+{% else %}
+    <div>
+        <p>It's empty here</p>
+    </div>
+{% endif %}
+{% endblock content %}

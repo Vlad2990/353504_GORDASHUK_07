@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css\about.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1><strong> About us</strong></h1>
+    <img class='logo' src="{{info.logo.url}}" height="200"/><br>
+    
+    <button id="addBtn">+</button>
+    <div id="form-container"></div>
+    <div id="input-container"></div>
+
+    <div class='info'>{{info.info}}</div>
+    
+    <a href="#cert">View Cetrificate↓</a><br>
+    
+    <div class='video-container'>
+        <video width="360" height="240" 
+            controls 
+            src="{{ info.video.url }}">
+            Can't load video.
+        </video>
+    </div>
+    <div class='audio-container'>
+        <figure>
+            <audio controls
+                src="{%static "audio.mp3"%}">
+                Can't load audio.
+            </audio>
+            <figcaption> Welcome message</figcaption>
+        </figure>
+    </div>
+
+    <ul class='history-list'>
+        {% for item in history%}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    <div class='requisites'>
+        {{info.requisites}}
+    </div>
+
+<div id="cert">
+    <div class="cert-content">
+        <h1 class="cert-title">СЕРТИФИКАТ НАДЁЖНОГО ПРОДАВЦА</h1>
+        <p class="cert-text">
+            Настоящим подтверждается, что компания <strong>Autoparts Pro</strong><br>
+            является официальным дистрибьютором автозапчастей и гарантирует<br>
+            качество всех представленных товаров.
+        </p>
+        <p class="cert-issued">
+            Выдан: <strong>23 октября 2025 г.</strong>
+        </p>
+        <div class="cert-signature">
+            <span>_________________________</span><br>
+            <small>Генеральный директор</small>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block js %}
+    <script src="{% static 'js/about.js' %}"></script>
+{% endblock %}
